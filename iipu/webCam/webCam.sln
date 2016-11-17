@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "webCam", "webCam\webCam.vcxproj", "{E88A545D-FA61-4CAD-9ACF-590FF8686258}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hideHookDll", "hideHookDll\hideHookDll.vcxproj", "{1970358B-C1D6-4A51-B284-A1774CBE6C18}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hideProcess", "hideProcess\hideProcess.vcxproj", "{72D3E176-169C-40C4-B198-A614888AB4D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E88A545D-FA61-4CAD-9ACF-590FF8686258}.Debug|x64.ActiveCfg = Debug|x64
+		{E88A545D-FA61-4CAD-9ACF-590FF8686258}.Debug|x64.Build.0 = Debug|x64
+		{E88A545D-FA61-4CAD-9ACF-590FF8686258}.Debug|x86.ActiveCfg = Debug|Win32
+		{E88A545D-FA61-4CAD-9ACF-590FF8686258}.Debug|x86.Build.0 = Debug|Win32
+		{E88A545D-FA61-4CAD-9ACF-590FF8686258}.Release|x64.ActiveCfg = Release|x64
+		{E88A545D-FA61-4CAD-9ACF-590FF8686258}.Release|x64.Build.0 = Release|x64
+		{E88A545D-FA61-4CAD-9ACF-590FF8686258}.Release|x86.ActiveCfg = Release|Win32
+		{E88A545D-FA61-4CAD-9ACF-590FF8686258}.Release|x86.Build.0 = Release|Win32
+		{1970358B-C1D6-4A51-B284-A1774CBE6C18}.Debug|x64.ActiveCfg = Debug|x64
+		{1970358B-C1D6-4A51-B284-A1774CBE6C18}.Debug|x64.Build.0 = Debug|x64
+		{1970358B-C1D6-4A51-B284-A1774CBE6C18}.Debug|x86.ActiveCfg = Debug|Win32
+		{1970358B-C1D6-4A51-B284-A1774CBE6C18}.Debug|x86.Build.0 = Debug|Win32
+		{1970358B-C1D6-4A51-B284-A1774CBE6C18}.Release|x64.ActiveCfg = Release|x64
+		{1970358B-C1D6-4A51-B284-A1774CBE6C18}.Release|x64.Build.0 = Release|x64
+		{1970358B-C1D6-4A51-B284-A1774CBE6C18}.Release|x86.ActiveCfg = Release|Win32
+		{1970358B-C1D6-4A51-B284-A1774CBE6C18}.Release|x86.Build.0 = Release|Win32
+		{72D3E176-169C-40C4-B198-A614888AB4D8}.Debug|x64.ActiveCfg = Debug|x64
+		{72D3E176-169C-40C4-B198-A614888AB4D8}.Debug|x64.Build.0 = Debug|x64
+		{72D3E176-169C-40C4-B198-A614888AB4D8}.Debug|x86.ActiveCfg = Debug|Win32
+		{72D3E176-169C-40C4-B198-A614888AB4D8}.Debug|x86.Build.0 = Debug|Win32
+		{72D3E176-169C-40C4-B198-A614888AB4D8}.Release|x64.ActiveCfg = Release|x64
+		{72D3E176-169C-40C4-B198-A614888AB4D8}.Release|x64.Build.0 = Release|x64
+		{72D3E176-169C-40C4-B198-A614888AB4D8}.Release|x86.ActiveCfg = Release|Win32
+		{72D3E176-169C-40C4-B198-A614888AB4D8}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
