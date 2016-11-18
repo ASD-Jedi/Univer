@@ -150,11 +150,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="device.hpp" />
+    <ClInclude Include="deviceRemover.hpp" />
     <ClInclude Include="devicePrinter.hpp" />
-    <ClInclude Include="resource.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="usbScanner.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

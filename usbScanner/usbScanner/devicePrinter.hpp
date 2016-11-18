@@ -1,9 +1,11 @@
 #pragma once
 #include "device.hpp"
 #include <Windows.h>
+#include "deviceRemover.hpp"
 
 typedef struct DrawnDevice {
 	HWND hWnd;
+	TCHAR deviceLetter;
 	int x;
 	int y;
 	int indexInVector;
@@ -20,7 +22,7 @@ private:
 	HWND hGroup;
 	static WNDCLASS rwc;
 	static WNDCLASS wcMem;
-	std::vector<DrawnDevice> drawnDevices;
+	static std::vector<DrawnDevice> drawnDevices;
 	int widthUsb = WIDTH_NAME;
 	int heightUsb = HEIGHT_USB;
 	int margin = MARGIN;
@@ -39,8 +41,6 @@ private:
 		case WM_PAINT:
 			if (numUsb >= usbDevice.getDevices().size())
 				break;
-			//tempUsb = usbDevice.getDevice(numUsb);
-
 			right = WIDTH_NAME * ((double)usbDevice.getDevice(numUsb).busyMemory / usbDevice.getDevice(numUsb).allMemory);
 			hdc = BeginPaint(hWnd, &ps);
 			hBrushYellow = CreateSolidBrush(RGB(255, 255, 184));
@@ -73,6 +73,16 @@ private:
 			CreateWindow(TEXT("Static"), tempUsb.volumeName, WS_CHILD | WS_VISIBLE, 0, 0, WIDTH_NAME, HEIGHT_USB/3, hWnd, (HMENU)50, NULL, NULL);
 			CreateWindow(TEXT("Static"), tempUsb.volumeLetter, WS_CHILD | WS_VISIBLE, 0, HEIGHT_USB/3, WIDTH_NAME, HEIGHT_USB / 3, hWnd, (HMENU)52, NULL, NULL);
 			CreateWindowEx(WS_EX_STATICEDGE, TEXT("Memory"), NULL, WS_CHILD | WS_VISIBLE, 0, HEIGHT_USB / 3 * 2, WIDTH_NAME, HEIGHT_USB / 3, hWnd, (HMENU)51, NULL, NULL);
+			break;
+		case WM_RBUTTONUP:
+			UsbRemover remover;
+			for (int i = 0; i < drawnDevices.size(); ++i) {
+				if (drawnDevices[i].hWnd == hWnd) {
+					BOOL res = remover.EjectVolume(drawnDevices[i].deviceLetter);
+					MessageBox(NULL, remover.GetLastMessage(), L"Info", MB_OK);
+					SendMessage(GetParent(hWnd), WM_DEVICECHANGE, 0, 0);
+				}
+			}
 			break;
 		}
 		return DefWindowProc(hWnd, uMsg, wParam, lParam);
@@ -109,7 +119,7 @@ public:
 		int y = (num / colAmount)*(HEIGHT_USB + margin);
 		tempUsb = device->getDevice(num);
 		HWND hNewDevice = CreateWindowEx(WS_EX_STATICEDGE, TEXT("UsbPrinter"), NULL, WS_CHILD | WS_VISIBLE | WS_BORDER | WS_CLIPCHILDREN, x, y, width, height, hGroup, HMENU(num), NULL, NULL);
-		DrawnDevice drawnDevice = { hNewDevice, x, y, num };
+		DrawnDevice drawnDevice = { hNewDevice, device->getDevice(num).volumeLetter[0], x, y, num };
 		drawnDevices.push_back(drawnDevice);
 		return hNewDevice;
 	}
@@ -131,3 +141,4 @@ WNDCLASS DevicePrinter::wcMem;
 UsbDeviceDescription DevicePrinter::tempUsb;
 UsbDevice DevicePrinter::usbDevice;
 int DevicePrinter::numUsb = 0;
+std::vector<DrawnDevice> DevicePrinter::drawnDevices;

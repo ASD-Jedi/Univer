@@ -14,8 +14,6 @@ typedef std::string TSTRING;
 #else 
 typedef std::wstring TSTRING;
 #endif
-// This is the GUID for the USB device class
-
 
 //struct to hold info, that need for output
 typedef struct UsbDeviceDescription {

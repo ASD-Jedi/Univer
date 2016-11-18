@@ -1,6 +1,5 @@
 #include <windows.h>
 #include "device.hpp"
-#include "resource.h"
 #include "devicePrinter.hpp"
 #include <Dbt.h>
 #include <CommCtrl.h>
